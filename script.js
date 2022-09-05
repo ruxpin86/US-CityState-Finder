@@ -15,6 +15,10 @@ function findMatch(wordMatch, cities) {
   });
 }
 
+function popNumWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function displayMatch() {
   const matchArray = findMatch(this.value, cities);
   const html = matchArray
@@ -31,7 +35,9 @@ function displayMatch() {
       return `
         <li>
             <span class="name">${cityName}, ${stateName}</span>           
-            <span class="population">${place.population}</span>           
+            <span class="population">${popNumWithCommas(
+              place.population
+            )}</span>           
         </li>
     `;
     })
