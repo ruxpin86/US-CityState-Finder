@@ -17,14 +17,16 @@ function findMatch(wordMatch, cities) {
 
 function displayMatch() {
   const matchArray = findMatch(this.value, cities);
-  const html = matchArray.map((place) => {
-    return `
+  const html = matchArray
+    .map((place) => {
+      return `
         <li>
             <span class="name">${place.city}, ${place.state}</span>           
             <span class="population">${place.population}</span>           
         </li>
     `;
-  });
+    })
+    .join("");
   suggestions.innerHTML = html;
 }
 
