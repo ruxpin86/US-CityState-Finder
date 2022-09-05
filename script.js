@@ -6,3 +6,11 @@ const cities = [];
 fetch(endpoint)
   .then((info) => info.json())
   .then((data) => cities.push(...data));
+
+//Function to find if the city/state matches what was searched by the user
+function findMatch(wordMatch, cities) {
+  return cities.filter((place) => {
+    const regex = new RegExp(wordMatch, "gi");
+    return place.city.match(regex) || place.state.match(regex);
+  });
+}
