@@ -14,3 +14,13 @@ function findMatch(wordMatch, cities) {
     return place.city.match(regex) || place.state.match(regex);
   });
 }
+
+function displayMatch() {
+  console.log(this.value);
+}
+
+const searchField = document.querySelector(".search");
+const suggestions = document.querySelector(".suggestions");
+
+searchField.addEventListener("change", displayMatch);
+searchField.addEventListener("keyup", displayMatch);
